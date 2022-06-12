@@ -1,0 +1,19 @@
+﻿@model Book
+
+@{
+    ViewBag.Title = "Book Creation Form";
+}
+<div class="center">
+    <h2>Book Creation Form</h2>
+<form asp-controller="Book" asp-action="Create"  method="POST" >
+    <label asp-for="book_name"></label><br/>
+    <input asp-for="book_name"/><br/>
+    <label asp-for="book_edition"></label><br />
+    <input asp-for="book_edition" /><br />
+    <label asp-for="publisher"></label><br />
+    <input asp-for="publisher"/><br />
+    <label asp-for="isbn_number"></label>
+    <input asp-for="isbn_number" /><br />
+    <input type="submit"  value="Create Book"/>
+</form>
+</div>
