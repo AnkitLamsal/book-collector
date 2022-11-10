@@ -1,0 +1,43 @@
+﻿@model book_collector.ViewModels.CollectionsViewModel.CreateCollectionViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CreateCollectionViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="collectionName" class="control-label"></label>
+                <input asp-for="collectionName" class="form-control" />
+                <span asp-validation-for="collectionName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="collectionDescription" class="control-label"></label>
+                <textarea asp-for="collectionDescription" type="text" class="form-control" rows="5" id="MessageInputField" autofocus></textarea>
+                <span asp-validation-for="collectionDescription" class="text-danger"></span>
+            </div>
+            <div class="form">
+                <select asp-for="selectedBooks" asp-items="Model.Books" multiple>
+                    <option></option>
+                </select>
+            <div/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
